@@ -11,23 +11,30 @@ function tamanhoTela()
 
 tamanhoTela()
 
-var posicaoX = Math.floor(Math.random() * largura) - 90
-var posicaoY = Math.floor(Math.random() * altura) - 90
+function posicaoAleatoria()
+{
+	if(document.getElementById('mosquito'))
+		document.getElementById('mosquito').remove()
 
-posicaoX = posicaoX < 0 ? 0 : posicaoX 
-posicaoY = posicaoY < 0 ? 0 : posicaoY 
+	var posicaoX = Math.floor(Math.random() * largura) - 90
+	var posicaoY = Math.floor(Math.random() * altura) - 90
 
-console.log(posicaoX, posicaoY)
+	posicaoX = posicaoX < 0 ? 0 : posicaoX 
+	posicaoY = posicaoY < 0 ? 0 : posicaoY 
 
-// Criar o elemento HTML de imagem
-var mosquito = document.createElement('img')
-mosquito.src = 'imagens/mosca.png'
-mosquito.className = tamanhoAleatorio() + ' ' + ladoAleatorio()
-mosquito.style.position = 'absolute'
-mosquito.style.left = posicaoX + 'px'
-mosquito.style.top = posicaoY + 'px'
+	console.log(posicaoX, posicaoY)
 
-document.body.appendChild(mosquito)
+	// Criar o elemento HTML de imagem
+	var mosquito = document.createElement('img')
+	mosquito.src = 'imagens/mosca.png'
+	mosquito.className = tamanhoAleatorio() + ' ' + ladoAleatorio()
+	mosquito.style.position = 'absolute'
+	mosquito.style.left = posicaoX + 'px'
+	mosquito.style.top = posicaoY + 'px'
+	mosquito.id = 'mosquito'
+
+	document.body.appendChild(mosquito)
+}
 
 function tamanhoAleatorio()
 {
