@@ -18,11 +18,12 @@ function posicaoAleatoria()
 		document.getElementById('mosquito').remove()
 
 		if(vidas > 3) {
-			window.alert('Game over!')
+			window.location.href = "game_over.html"
 		} else {
 			document.getElementById('v' + vidas).src = "imagens/coracao_vazio.png"
 		}
 		vidas++
+		
 	}
 
 	var posicaoX = Math.floor(Math.random() * largura) - 90
