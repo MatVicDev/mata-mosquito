@@ -1,6 +1,7 @@
 let altura = 0
 let largura = 0
 let vidas = 1
+let tempo = 10
 
 function tamanhoTela()
 {
@@ -11,6 +12,22 @@ function tamanhoTela()
 }
 
 tamanhoTela()
+
+let cronometro = setInterval(function() {
+
+	if(tempo < 0) {
+		clearInterval(cronometro)
+		clearInterval(criarMoscas)
+
+		window.location.href = "vitoria.html"
+	} else {
+		document.getElementById('cronometro').innerHTML = tempo
+		tempo--
+	}
+
+	
+	
+}, 1000)
 
 function posicaoAleatoria()
 {
@@ -43,7 +60,7 @@ function posicaoAleatoria()
 	mosquito.style.top = posicaoY + 'px'
 	mosquito.id = 'mosquito'
 	mosquito.onclick = function(){
-		alert('Hello, world!')
+		mosquito.remove()
 	}
 
 	document.body.appendChild(mosquito)
