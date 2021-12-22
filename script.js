@@ -1,5 +1,6 @@
 let altura = 0
 let largura = 0
+let vidas = 1
 
 function tamanhoTela()
 {
@@ -13,8 +14,16 @@ tamanhoTela()
 
 function posicaoAleatoria()
 {
-	if(document.getElementById('mosquito'))
+	if(document.getElementById('mosquito')) {
 		document.getElementById('mosquito').remove()
+
+		if(vidas > 3) {
+			window.alert('Game over!')
+		} else {
+			document.getElementById('v' + vidas).src = "imagens/coracao_vazio.png"
+		}
+		vidas++
+	}
 
 	var posicaoX = Math.floor(Math.random() * largura) - 90
 	var posicaoY = Math.floor(Math.random() * altura) - 90
@@ -32,6 +41,9 @@ function posicaoAleatoria()
 	mosquito.style.left = posicaoX + 'px'
 	mosquito.style.top = posicaoY + 'px'
 	mosquito.id = 'mosquito'
+	mosquito.onclick = function(){
+		alert('Hello, world!')
+	}
 
 	document.body.appendChild(mosquito)
 }
